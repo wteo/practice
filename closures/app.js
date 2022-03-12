@@ -34,10 +34,10 @@ function multiply (x, y) {
     }
 }
 
-const result1 = multiply(2,2); // the arguments references to the inner function arguments first. 
+const result1 = multiply(2,2); // the arguments references to the outer function arguments first, which are x & y.
 const result2 = multiply(3,3);
 
-// then, you call on the outer function arguments on the second round.
+// then, you call on the inner function arguments on the second round.
 
 result1(2,8); // 4,16
 result2(6,2); // 18,6
