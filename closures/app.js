@@ -41,3 +41,15 @@ const result2 = multiply(3,3);
 
 result1(2,8); // 4,16
 result2(6,2); // 18,6
+
+// Closures are useful as a one-size fit all function with multiple purposes / ranges for a func
+// The example below allows you to check on the eligibility of a person to do something based on his/her age. 
+
+function ageEligibility(min, max) {
+    return age = (personAge) => {
+      return (personAge < min || personAge > max) ? "Not eligible." : "Eligible.";
+    }
+  }
+  
+  const canDrive = ageEligibility(16, 65);
+  const canWork = ageEligibility(15, 75);
