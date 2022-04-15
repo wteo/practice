@@ -1,0 +1,16 @@
+* {
+    background-color: black;
+}
+
+body {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    background-color: white;
+}
+
+input {
+    background-color: white;
+}
