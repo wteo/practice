@@ -27,9 +27,23 @@ app.post("/register", (req, res) => {
 const members = require("./Members"); // Because it's a modile., the Members.js title file starts with a big capital
 app.get("/api/members", (req, res) => res.json(members));
 
-app.get("/api/members/:i", (req, res) => {
-    res.json(req.params.id);
-})
+// Get Single Member
+app.get("/api/members/:id", (req,res) => {
+    const found = members.some(member => member.id === req.params.id)
+    if(found) {
+        res.json(members.filter(member => member.id === req.params.id));
+    } else {
+        res.status(400).json({message: `No member with the id of ${req.params.id}`});
+    }
+});
+
+// How to create a custom middleware
+const logger = (req, res, next) => {
+    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}`);
+    next(); // You call next() last so you can move to the next stack.
+};
+// To initialize your middleware
+app.use(logger);
 
 // If your HTTP req methods share the same path, you can chain them via app.route();
 app.route("/contact")
