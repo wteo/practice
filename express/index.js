@@ -65,6 +65,24 @@ app.route("/contact")
     res.send("Thanks for contacting us!");
 });
 
+// How to create Routers
+// 1. First create a seperate folder where you want to save your data.
+// Example pokemon.js the pokemon/api folder
+// 2. in the JS file, call on the express.Router() method
+//      const express = require("express");
+//      const router = express.Router();
+// 3. In the same file, call on the verb methods
+// Basic syntax
+//      router.get("/", (req, res) => {
+//          res.send("_____")    
+//      });
+// 4. Then, remember to export the router via "module.exports = router"
+// 5. In the root file, use app.use() to call on the router
+// Basic syntax
+//      app.use(path, router);
+// Example Below
+const pokemon = require("./pokemon/api/pokemon.js")
+app.use("/pokemon/api/pokemon", pokemon);
 
 // To create a localHost port
 app.listen(port, () => {
