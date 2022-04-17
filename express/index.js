@@ -65,6 +65,15 @@ app.route("/contact")
     res.send("Thanks for contacting us!");
 });
 
+// How to create/update/delete object
+// 1. To create/update/delete object, use the "post", "put" and "delete" verbs respectively. 
+// i.e check the examples in the pokemon/api/pokemon.js file
+// 2. To get data from res.body, you need to parse. Express has some built-in middlewares to help do this.
+// Note: The middleware parsing needs to be placed before the initialization of the HTTP verbs.
+// Examples
+app.use(express.json()); // this allows you to handle raw json
+app.use(express.urlencoded({extended: false})); // this allow to handle forms
+
 // How to create Routers
 // 1. First create a seperate folder where you want to save your data.
 // Example pokemon.js the pokemon/api folder
@@ -83,6 +92,10 @@ app.route("/contact")
 // Example Below
 const pokemon = require("./pokemon/api/pokemon.js")
 app.use("/pokemon/api/pokemon", pokemon);
+
+// How to update new object
+
+// How to delete new object
 
 // To create a localHost port
 app.listen(port, () => {
